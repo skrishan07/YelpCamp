@@ -1,0 +1,43 @@
+<%- include ("partials/header") %>
+<!-- <div class="formLoginBack"> -->
+<div class="container text-center formLogin" >
+    <div class="card">
+        <!-- Card Head -->
+        <h3 class="mt-5 d-flex pl-5 float-left">LOGIN</h3>
+        <!-- <div class="top mt-2">
+            <i class="fas fa-circle first"></i>
+            <i class="fas fa-user float-right second"></i>
+        </div> -->
+        
+        <!-- Card Body -->
+        <div class="card-body">
+            <form action="/login" method="POST">
+                <div class="input-group form-group mt-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input class="form-control" type="text" name="username" placeholder="Username" required>
+                </div>
+    
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input class="form-control" type="password" name="password" placeholder="Password" required>
+                </div>
+                
+                <div class="form-group mt-5">
+                    <button class="form-control btn btn-outline-primary">Login</button>
+                </div>
+            </form>
+        </div>
+        <!-- Card Footer -->
+        <div class="card-footer">
+            <div class="float-left">
+                Don't have a account?<a href="/register"> Sign Up</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- </div> -->
+<%- include ("partials/footer") %>

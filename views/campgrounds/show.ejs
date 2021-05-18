@@ -1,0 +1,120 @@
+<%- include ("../partials/header") %>
+<div class="container" onload="initfun()">
+    <div class="row">
+        <!-- left -->
+        <div class="col-md-3">
+            <p class="lead">YelpCamp</p>
+            <div class="list-group mb-2">
+                <li class="list-group-item active" id="change1" onclick="solve1()">Info 1</li>
+                <li class="list-group-item" id="change2" onclick="solve2()">Info 2</li>
+            </div>
+        </div>
+
+        <!-- right -->
+        <div class="col-md-9">
+            <!-- content -->
+            <div class="card rounded-lg bg-dark">
+                <!-- first Info 1-->
+                <div id="hh1">
+                    <img src="<%= campground.image %>" class="card-img-top img-fluid rounded-top" id="img1">
+                </div>
+                
+                <!-- second Info 2-->
+                <div style="display: none;" id="hh2" >
+                    <img src="<%= campground.image %>" class="card-img-top img-fluid rounded-top" id="img2">
+                    <div class="caption-full px-3 mt-2 card-img-overlay">
+                        <h4 class="float-right">Rs <%= campground.price %>/night</h4>
+                        <!-- <h4><a href=""></a><%=campground.title %></a></h4> -->
+                        <h4><%=campground.title %></h4>
+                                           
+                        <p> <%=campground.description %>  </p>
+                            <p><em> 
+                                Submitted By <%= campground.author.username %>, 
+                                <%= moment(campground.createdAt).fromNow() %> 
+                        </em></p>
+                        
+    
+                        <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
+                        <a class="btn btn-info btn-sm" href="/campgrounds/<%=campground._id%>/edit">Edit</a>
+                        <form class="d-inline" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger btn-sm m-2" >Delete</button>
+                        </form>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+
+            <!-- comments -->
+            <div class="card my-3 bg-light">
+                <div class="text-right">
+                    <a href="/campgrounds/<%=campground._id%>/comment/new" 
+                        class="btn btn-outline-primary mt-2 mr-2">
+                        Add new comment
+                    </a>
+                </div>
+                <hr>
+
+                <%campground.comments.forEach(function(comment){ %>
+                    <div class="row pl-2">
+                        <div class="col-md-12">
+                    
+                            <div class="d-flex justify-content-between">
+                                <strong> <%= comment.author.username %> </strong>
+                                <span class="mr-2"><%= moment(comment.createdAt).fromNow() %></span>
+                            </div>
+                            <p class="d-inline">  - <%= comment.text %> </p>
+                            <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                                <form class="d-inline" action="/campgrounds/<%=campground._id%>/comment/<%=comment._id%>?_method=DELETE" method="POST">
+                                    <button class="btn btn-sm btn-danger my-2 mx-2 float-right">Delete</button>
+                                </form>
+                                <a class="btn btn-sm btn-info my-2 float-right" href="/campgrounds/<%=campground._id%>/comment/<%=comment._id%>/edit">Edit</a>
+                            <% }else{ %>
+                                <div class="mb-2"></div>
+                            <% } %>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    
+    window.onload = function(){
+        var img1 = document.getElementById("img1");
+        var img2 = document.getElementById("img2");
+        if(img1.clientWidth < img1.clientHeight){
+            img1.classList.add('verticalImage');
+            img2.classList.add('verticalImage');
+        }
+    }
+    function solve1(){
+        var c1 = document.getElementById('change1');
+        var c2 = document.getElementById('change2');
+        var x = document.getElementById('hh1');
+        var y = document.getElementById('hh2');
+        c1.classList.add("active");
+        c2.classList.remove("active");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.display = "none";
+        }
+    }
+    function solve2(){
+        var c1 = document.getElementById('change1');
+        var c2 = document.getElementById('change2');
+        var x = document.getElementById('hh1');
+        var y = document.getElementById('hh2');
+        c1.classList.remove("active");
+        c2.classList.add("active");
+        if (y.style.display === "none") {
+            y.style.display = "block";
+            x.style.display = "none";
+        }
+        var imgs = document.querySelector("img");
+        console.log(imgs.height);
+        console.log(imgs.width);
+    }
+</script>
+<%- include ("../partials/footer") %>

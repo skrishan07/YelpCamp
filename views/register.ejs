@@ -1,0 +1,46 @@
+<%- include ("./partials/header") %>
+
+<div class="container text-center formLogin">
+    <div class="card">
+        <!-- Card Head -->
+        <h3 class="mt-5 d-flex pl-5 float-left">SIGNUP</h3>
+        <!-- <div class="top">
+            
+            <i class="fas fa-circle first"></i>
+            <i class="fas fa-user float-right second"></i>
+        </div> -->
+        <!-- Card Body -->
+        <div class="card-body">
+            <form action="/register" method="POST">
+                
+                <div class="form-group input-group mt-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input class="form-control" type="text" name="username" placeholder="Username">
+                </div>
+                
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input class="form-control" type="password" name="password" placeholder="Password">
+                </div>
+
+                <div class="form-group mt-5">
+                    <button class="form-control btn btn-outline-primary">Sign Up</button>
+                </div>
+
+            </form>
+        </div>
+        <!-- Card Footer -->
+        <div class="card-footer">
+            <div class="float-left">
+                Already have a account?<a href="/login"> Log In</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<%- include ("./partials/footer") %>

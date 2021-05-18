@@ -1,0 +1,114 @@
+
+/* Login Form CSS */
+.formLogin{
+    width: 400px;
+    margin: 5% auto;
+}
+.formLogin .card{
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  border-left: solid #007BFF 4px;
+}
+.formLogin h3{
+  color: #007BFF;
+}
+
+
+/* show form CSS */
+.formShow{
+  width: 500px;
+  margin: 5% auto;
+}
+.formShow .card{
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 500px;
+  border-left: solid #007BFF 4px;
+}
+.formShow h3{
+  color: #007BFF;
+}
+
+
+/* verticalImage */
+.verticalImage{
+  display: block;
+  height: fit-content; 
+  width: fit-content; 
+  object-fit: cover;
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+#searchId{
+  outline: none;
+  border: 1px solid #007BFF;
+  color: #007BFF;
+  background-color: transparent;
+}
+#searchId:focus{
+  outline: none;
+  box-shadow: 0 8px 17px 0 rgba(0,123,255,0.2),0 6px 20px 0 rgba(0,123,255,0.19);
+}
+#searchId::placeholder{
+  color: #007BFF;
+}
+
+.showImage{
+  background-color: black;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+  color: white;
+}
+
+.indexCard p{
+  font-size: 1.4em;
+  font-weight: 400;
+} 
+
+.indexCard:hover{
+  box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: scale(1.02);
+}
+
+#hh2 {
+  color: white;
+  background: black;
+  /* overflow: scroll; */
+}
+#hh2 img{
+  filter: blur(5px) brightness(0.5);
+}
+
+#hh2 h4,p{
+  font-weight: lighter;
+}
+
+@media (min-width:356px) {
+    .card-columns {
+      column-count: 1;
+    }
+}
+
+@media (min-width:576px) {
+    .card-columns {
+      column-count: 1;
+    }
+}
+  @media (min-width:768px) {
+    .card-columns {
+      column-count: 2;
+    }
+}
+@media (min-width:992px) {
+    .card-columns {
+      column-count: 3;
+    }
+}
+@media (min-width:1200px) {
+    .card-columns {
+      column-count: 4;
+    }
+}
